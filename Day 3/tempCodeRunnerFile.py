@@ -5,7 +5,7 @@ name2 = "anastia" # What is their name?
 # Write your code below this line 👇
 
 nama = name1 + name2
-lower = nama.lower()
+lower = nama.lower
 
 t = lower.count("t")
 r = lower.count("r")
@@ -25,9 +25,9 @@ comb = str(first) + str(second)
 final = int(comb)
 
 if final < 10 or final > 90:
-    print(f"Your score is {final}, you go together like coke and mentos")
+    print("Your score is {final}, you go together like coke and mentos")
 elif final > 40 and final < 50:
-    print(f"Your score is {final}, you are alright together.")
+    print("Your score is {final}, you are alright together.")
 else:
-    print(f"Your score is {final}.")
+    print("Your score is {final}.")
 
