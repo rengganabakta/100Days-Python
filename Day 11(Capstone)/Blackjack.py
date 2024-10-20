@@ -9,7 +9,7 @@ def generate_card():
     return random.choice(card)
 
 def spill_card():
-    print(f"bandar : {comp[1]} and X ")
+    print(f"bandar : {comp[0]} and X with total XX")
     print(f"You : {' and '.join(map(str, user))} with total {sum(user)}")
 
 def calculate(comp, user):
@@ -21,10 +21,36 @@ def calculate(comp, user):
         user_win = True
         return user_win
     elif total_user > 21: # over 21 
-        if user[0] == 11 or user[1] == 11: # have ace ?
+        if 11 in user: # have ace ?
             if (total_user - 10) > 21: # if the ACE == 1 Are they still above 21 ?
                  user_win = 0 # no == user lose
-                 
+        else:
+            return
+    elif total_comp < total_user and total_user <= 21:
+        return user_win == 0
+    
+    return user_win
+
+def add_card(player):
+    player.append(generate_card())
+    spill_card()
+    U_win = calculate(comp, user)
+    
+def check(U_win):
+    if sum(user) == sum(comp):
+        print("Draw")
+    if U_win == True:
+        print("user wins")
+    else:
+        print("comp wins")
+        
+def comp_play():
+    while sum(comp) < sum(user):
+        add_card(comp)
+        calculate(comp, user)
+    print(f"bandar : {' and '.join(map(str, comp))} with total {sum(comp)}")
+    print(f"You : {' and '.join(map(str, user))} with total {sum(user)}")
+        
 comp = [generate_card(), generate_card()]
 user = [generate_card(), generate_card()]
 
@@ -37,12 +63,10 @@ U_win = calculate(comp, user)
 
 print("Wanna Add more Card ? (Y/N)")
 input2 = input("==> ")
-if input2 == "Y" or input2 == 'y':
-    user.append(generate_card())
-    spill_card()
-    U_win = calculate(comp, user)
-    
-if U_win == True:
-    print("user wins")
-else:
-    print("comp wins")
+while input2 == "Y" or input2 == 'y':
+    add_card(user)
+    print("Wanna Add more Card ? (Y/N)")
+    input2 = input("==> ")
+
+comp_play()
+check(U_win)
