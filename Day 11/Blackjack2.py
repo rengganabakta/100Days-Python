@@ -3,9 +3,8 @@ import random
 # Use a list instead of a set to allow duplicates
 card = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
 
-
 def generate_card():
-    """generate 2 nilai acak yang dikembalikan satu per satu"""
+    """Generate a random card value."""
     return random.choice(card)
 
 def spill_card(comp, user):
@@ -47,7 +46,7 @@ def check(U_win):
         print("Draw")
 
 def comp_play():
-    while sum(comp) < 17:
+    while sum(comp) < 17:  # Typically, the dealer hits until they reach 17
         add_card(comp)
     spill_card(comp, user)
 
