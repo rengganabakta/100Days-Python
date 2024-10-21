@@ -18,7 +18,7 @@ match input1:
         print("Invalid difficulty level. Defaulting to normal.")
         
 for i in range(trying):
-    guess = (int(input(f"{i} guess is ? =>>  ")))
+    guess = (int(input(f"{i + 1} guess is ? =>>  ")))
     if guess == number:
         print("You win")
         break
@@ -26,3 +26,5 @@ for i in range(trying):
         print("Lower...")
     elif guess < number:
         print("Higher...")
+    
+print("you lost the game")
