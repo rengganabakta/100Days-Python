@@ -36,19 +36,19 @@ def check_money(coffee):
         print(f"Maaf uang anda belum cukup. anda perlu {round(( MENU[coffee]['cost'] - user_money ), 2)}$")
         return False, user_money
     
-def make_coffee(money, coffee):
-    print("Your Coffee is Served : ☕")
-    print(f"Your change : {round(user_money - MENU[coffee]['cost'], 2)}")
+# def make_coffee(money, coffee):
+#     print("Your Coffee is Served : ☕")
+#     print(f"Your change : {round(user_money - MENU[coffee]['cost'], 2)}")
     
-    user_ingredients = MENU[coffee]["ingredients"]
-    dispenser_ingredients = MENU["dispenser"]["ingredients"]
+#     user_ingredients = MENU[coffee]["ingredients"]
+#     dispenser_ingredients = MENU["dispenser"]["ingredients"]
 
-    for ingredient, required_amount in user_ingredients.items():
-        if ingredient in dispenser_ingredients:
-            dispenser_ingredients[ingredient] -= required_amount  # Deduct from dispenser
-            print(f"Updated {ingredient} in dispenser: {dispenser_ingredients[ingredient]}")
-        else:
-            print(f"Ingredient {ingredient} not available in dispenser.")
+#     for ingredient, required_amount in user_ingredients.items():
+#         if ingredient in dispenser_ingredients:
+#             dispenser_ingredients[ingredient] -= required_amount  # Deduct from dispenser
+#             print(f"Updated {ingredient} in dispenser: {dispenser_ingredients[ingredient]}")
+#         else:
+#             print(f"Ingredient {ingredient} not available in dispenser.")
          
 
 print("Welcome to our coffee machine, select your coffe please\navalaible today is \nespresso \t: $1.50\nLatte \t\t: $2.50\nCappucino \t: $3.00\n\n")
